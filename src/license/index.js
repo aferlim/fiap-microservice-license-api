@@ -6,7 +6,9 @@ const License = server => {
 	server.route({
 		method: 'POST',
 		path: '/license',
-		handler: (req, res) => Create(req.body, res),
+		handler: (req, res) => {
+			return Create(req.payload, res)
+		},
 		options: {
 			description: 'Creates a license',
 			notes: ['201', '500'],

@@ -1,29 +1,29 @@
 const ok = (res, data) => {
-	res.response(data).code(200)
+	return res.response(data).code(200)
 }
 
 const noContent = res => {
-	res.response().code(204)
+	return res.response().code(204)
 }
 
 const notFound = res => {
-	res.response().code(404)
+	return res.response().code(404)
 }
 
 const badRequest = res => {
-	res.response().code(400)
+	return res.response().code(400)
 }
 
 const badRequestWithMessage = (res, message) => {
-	res.response(message).code(400)
+	return res.response(message).code(400)
 }
 
 const created = res => {
-	res.response().code(201)
+	return res.response().code(201)
 }
 
 const conflict = res => {
-	res.response().code(409)
+	return res.response().code(409)
 }
 
 const success = res => res.response().code(200)

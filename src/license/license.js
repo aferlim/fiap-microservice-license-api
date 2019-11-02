@@ -17,14 +17,18 @@ const _validateLicense = license => {
 		throw LicenseError(message, details, annotate)
 	}
 
+	if (license == null) throw LicenseError('invalid request', '', '')
+
 	return value
 }
 
 const Create = (license, res) => {
 	try {
-		_validateLicense(license)
+		let valid = _validateLicense(license)
 
-		DATA.push(license)
+		DataTemp.push(valid)
+
+		console.log(valid)
 
 		return created(res)
 	} catch (error) {
@@ -33,9 +37,9 @@ const Create = (license, res) => {
 }
 
 const GetAll = res => {
-	return ok(res, DATA)
+	return ok(res, DataTemp)
 }
 
 module.exports = { Create, GetAll }
 
-const DATA = []
+const DataTemp = []
